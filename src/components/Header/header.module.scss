@@ -1,17 +1,35 @@
 .header {
-  padding: 6px 0 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  padding: 11px 0 10px;
+  box-shadow: inset 0 -1px 0 0 #eaeaea;
+  backdrop-filter: saturate(180%) blur(5px);
+  background: hsla(0, 0%, 100%, 0.9);
   .box {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .logo {
+    max-width: 80px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 50px;
   }
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
     li {
       border-bottom: 1px solid transparent;
       transition: all 0.2s linear;
@@ -39,7 +57,7 @@
       border: none;
       background: none;
       width: 35px;
-      img{
+      img {
         width: 100%;
         height: auto;
         display: block;

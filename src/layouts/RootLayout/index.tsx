@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={roboto.className}>
         <Header />
-        <div className="container">{children}</div>
+        <main>{children}</main>
       </body>
     </html>
   );
