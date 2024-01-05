@@ -1,5 +1,5 @@
+'use client';
 import React from 'react';
-
 import style from './header.module.scss';
 import Image from 'next/image';
 import searchIcon from '@public/icons/search.svg';
