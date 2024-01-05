@@ -1,0 +1,49 @@
+.header {
+  padding: 6px 0 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    li {
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s linear;
+      padding: 3px 0;
+      cursor: pointer;
+      &:hover {
+        border-color: #000;
+      }
+    }
+  }
+  .search {
+    max-width: 160px;
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 20px;
+    input {
+      width: 100%;
+      border: none;
+      background: none;
+      font-size: 14px;
+    }
+    button {
+      border: none;
+      background: none;
+      width: 35px;
+      img{
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+}
