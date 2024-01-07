@@ -1,24 +1,26 @@
-.swiper {
-  &-slide {
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
+.slider-client {
+  .swiper {
+    &-slide {
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
     }
-  }
-  &-pagination {
-    span {
-      background: #898989;
+    &-pagination {
+      span {
+        background: #898989;
+      }
     }
-  }
-  &-button-prev {
-    &::after {
-      color: #333333;
+    &-button-prev {
+      &::after {
+        color: #333333;
+      }
     }
-  }
-  &-button-next {
-    &::after {
-      color: #333333;
+    &-button-next {
+      &::after {
+        color: #333333;
+      }
     }
   }
 }

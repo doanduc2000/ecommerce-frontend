@@ -31,10 +31,13 @@
     display: flex;
     gap: 25px;
     li {
-      border-bottom: 1px solid transparent;
+      border-bottom: 2px solid transparent;
       transition: all 0.2s linear;
       padding: 3px 0;
       cursor: pointer;
+      a {
+        color: #111111;
+      }
       &:hover {
         border-color: #000;
       }

@@ -8,7 +8,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 export default function Slider() {
   return (
     <Swiper
-      className="slider"
+      className="slider-client slider"
       modules={[Navigation, Pagination, Autoplay]}
       autoplay={{
         delay: 7000,

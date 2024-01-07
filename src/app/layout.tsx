@@ -3,6 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './globals.css';
+import './layout.scss';
 import RootLayout from '@/layouts/RootLayout';
 
 export const metadata: Metadata = {

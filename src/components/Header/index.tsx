@@ -10,13 +10,18 @@ const Header = () => {
     <header className={style.header}>
       <div className="container">
         <div className={style.box}>
-          <div className={style.logo}>
-            <Image width={400} height={291} src={logo} priority={true} alt="" />
-          </div>
+          <a href="#" className={style.logo}>
+            <h1>
+              <Image width={400} height={291} src={logo} priority={true} alt="" />
+            </h1>
+          </a>
           <div className={style.right}>
             <ul>
               <li>
                 <a href="#">Nails</a>
+              </li>
+              <li>
+                <a href="#">Nails box</a>
               </li>
               <li>
                 <a href="#">Shop</a>
