@@ -12,7 +12,7 @@ interface ProductListProps {
 const ProductList = (props: ProductListProps) => {
   return (
     <div className={style.productList}>
-      <a href="#" className={style.header}>
+      <a href="/products" className={style.header}>
         <h2 className={style.title}>{props.title}</h2>
       </a>
       <div className={style.box}>
