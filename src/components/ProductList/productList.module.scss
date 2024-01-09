@@ -1,12 +1,12 @@
 .productList {
-  padding: 40px 0;
+  padding: 40px 0 30px;
   .header {
     display: block;
     margin-bottom: 20px;
   }
   .title {
     font-size: 24px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     width: fit-content;
     transition: all 0.2s linear;
     &:hover {
@@ -14,6 +14,7 @@
     }
   }
   .box {
+    padding-bottom: 20px;
     img {
       width: 100%;
       height: auto;
@@ -22,37 +23,24 @@
     .slideItem {
       position: relative;
       display: block;
-      p {
-        margin: 0;
-        position: absolute;
-        visibility: hidden;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(2px);
-        opacity: 0;
-        width: 100%;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.2s linear;
+      .text {
+        margin-top: 10px;
+        a,
+        span {
+          font-size: 18px;
+          font-weight: 500;
+        }
         a {
-          background: #fff;
-          font-size: 14px;
-          font-weight: 600;
-          padding: 5px 15px;
-          border-radius: 18px;
+          border-bottom: 2px solid transparent;
           transition: all 0.2s linear;
           &:hover {
-            background: #e0e0e0;
+            border-color: #111111;
           }
         }
-      }
-      &:hover {
         p {
-          visibility: visible;
-          opacity: 1;
+          font-size: 16px;
+          margin-bottom: 5px;
+          color: #707072;
         }
       }
     }

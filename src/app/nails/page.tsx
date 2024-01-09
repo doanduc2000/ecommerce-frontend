@@ -1,3 +1,9 @@
 import Products from '@/screens/Products';
 
-export default Products;
+import React from 'react';
+
+const Page = () => {
+  return <Products />;
+};
+
+export default Page;

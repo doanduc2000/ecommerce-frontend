@@ -29,17 +29,22 @@
     padding: 0;
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 25px;
     li {
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s linear;
-      padding: 3px 0;
-      cursor: pointer;
       a {
-        color: #111111;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s linear;
+        padding: 5px 0;
+        cursor: pointer;
+        &:hover {
+          border-color: #111111;
+        }
       }
-      &:hover {
-        border-color: #000;
+    }
+    .active {
+      a {
+        border-color: #111111;
       }
     }
   }
