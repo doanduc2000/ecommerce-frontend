@@ -20,30 +20,7 @@
       height: auto;
       display: block;
     }
-    .slideItem {
-      position: relative;
-      display: block;
-      .text {
-        margin-top: 10px;
-        a,
-        span {
-          font-size: 18px;
-          font-weight: 500;
-        }
-        a {
-          border-bottom: 2px solid transparent;
-          transition: all 0.2s linear;
-          &:hover {
-            border-color: #111111;
-          }
-        }
-        p {
-          font-size: 16px;
-          margin-bottom: 5px;
-          color: #707072;
-        }
-      }
-    }
+   
   }
   @media (max-width: 767px) {
     padding: 30px 0;

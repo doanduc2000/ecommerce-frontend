@@ -3,9 +3,16 @@ import React from 'react';
 import style from './productList.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar } from 'swiper/modules';
-import Image from 'next/image';
 import nailDemo from '@public/images/nails-demo.jpg';
+import ProductCard from '../ProductCard';
 
+const data = [
+  { id: '1', name: 'Mẫu 1', img: nailDemo, price: 100000 },
+  { id: '2', name: 'Mẫu 2', img: nailDemo, price: 100000 },
+  { id: '3', name: 'Mẫu 3', img: nailDemo, price: 100000 },
+  { id: '4', name: 'Mẫu 4', img: nailDemo, price: 100000 },
+  { id: '5', name: 'Mẫu 5', img: nailDemo, price: 100000 },
+];
 interface ProductListProps {
   title: string;
 }
@@ -38,56 +45,11 @@ const ProductList = (props: ProductListProps) => {
           },
         }}
       >
-        <SwiperSlide>
-          <div className={style.slideItem}>
-            <Image width={270} height={270} src={nailDemo} alt="" />
-            <div className={style.text}>
-              <a href="/nails/1">Mẫu 1</a>
-              <p>{props.title}</p>
-              <span>2,929,000₫</span>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={style.slideItem}>
-            <Image width={270} height={270} src={nailDemo} alt="" />
-            <div className={style.text}>
-              <a href="/nails/1">Mẫu 1</a>
-              <p>{props.title}</p>
-              <span>2,929,000₫</span>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={style.slideItem}>
-            <Image width={270} height={270} src={nailDemo} alt="" />
-            <div className={style.text}>
-              <a href="/nails/1">Mẫu 1</a>
-              <p>{props.title}</p>
-              <span>2,929,000₫</span>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={style.slideItem}>
-            <Image width={270} height={270} src={nailDemo} alt="" />
-            <div className={style.text}>
-              <a href="/nails/1">Mẫu 1</a>
-              <p>{props.title}</p>
-              <span>2,929,000₫</span>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={style.slideItem}>
-            <Image width={270} height={270} src={nailDemo} alt="" />
-            <div className={style.text}>
-              <a href="/nails/1">Mẫu 1</a>
-              <p>{props.title}</p>
-              <span>2,929,000₫</span>
-            </div>
-          </div>
-        </SwiperSlide>
+        {data.map((item) => (
+          <SwiperSlide key={item.id}>
+            <ProductCard category={props.title} {...item} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
