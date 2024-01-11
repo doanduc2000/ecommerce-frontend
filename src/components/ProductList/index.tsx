@@ -5,13 +5,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import nailDemo from '@public/images/nails-demo.jpg';
 import ProductCard from '../ProductCard';
+import { convertToSlug } from '@/utils/help';
 
 const data = [
-  { id: '1', name: 'Mẫu 1', img: nailDemo, price: 100000 },
-  { id: '2', name: 'Mẫu 2', img: nailDemo, price: 100000 },
-  { id: '3', name: 'Mẫu 3', img: nailDemo, price: 100000 },
-  { id: '4', name: 'Mẫu 4', img: nailDemo, price: 100000 },
-  { id: '5', name: 'Mẫu 5', img: nailDemo, price: 100000 },
+  { id: '1', name: 'Mẫu 1', img: nailDemo, price: 100000, category: 'Nails' },
+  { id: '2', name: 'Mẫu 2', img: nailDemo, price: 100000, category: 'Nails' },
+  { id: '3', name: 'Mẫu 3', img: nailDemo, price: 100000, category: 'Nails' },
+  { id: '4', name: 'Mẫu 4', img: nailDemo, price: 100000, category: 'Nails' },
+  { id: '5', name: 'Mẫu 5', img: nailDemo, price: 100000, category: 'Nails' },
 ];
 interface ProductListProps {
   title: string;
@@ -19,7 +20,7 @@ interface ProductListProps {
 const ProductList = (props: ProductListProps) => {
   return (
     <div className={style.productList}>
-      <a href="/products" className={style.header}>
+      <a href={`/${convertToSlug(props.title)}`} className={style.header}>
         <h2 className={style.title}>{props.title}</h2>
       </a>
       <Swiper
@@ -47,7 +48,7 @@ const ProductList = (props: ProductListProps) => {
       >
         {data.map((item) => (
           <SwiperSlide key={item.id}>
-            <ProductCard category={props.title} {...item} />
+            <ProductCard {...item} />
           </SwiperSlide>
         ))}
       </Swiper>
