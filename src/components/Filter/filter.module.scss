@@ -1,0 +1,44 @@
+.filter {
+  position: relative;
+  width: 150px;
+  button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 5px;
+    background: #fff;
+    border: 1px solid #111;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background: #f1f1f1;
+    }
+    img {
+      width: 18px;
+      height: auto;
+    }
+  }
+  ul {
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #111;
+    border-radius: 4px;
+
+    li {
+      padding: 5px 10px;
+      cursor: pointer;
+      &:hover {
+        background: #f1f1f1;
+      }
+    }
+  }
+}

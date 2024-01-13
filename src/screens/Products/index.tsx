@@ -1,7 +1,10 @@
 import React from 'react';
 import style from './products.module.scss';
 import nailDemo from '@public/images/nails-demo.jpg';
+
 import dynamic from 'next/dynamic';
+import Filter from '@/components/Filter';
+
 const data = [
   { name: 'Mẫu 1', img: nailDemo, price: 100000, category: 'Nails' },
   { name: 'Mẫu 2', img: nailDemo, price: 100000, category: 'Nails' },
@@ -34,7 +37,10 @@ const Products = () => {
   return (
     <div className={style.products}>
       <div className="container">
-        <h2 className={style.title}>Nails ({data.length})</h2>
+        <div className={style.header}>
+          <h2 className={style.title}>Nails ({data.length})</h2>
+          <Filter />
+        </div>
         <div className={style.box}>
           {data.map((item, idx) => (
             <div className={style.item} key={`id${idx}`}>

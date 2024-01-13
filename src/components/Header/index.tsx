@@ -4,16 +4,16 @@ import style from './header.module.scss';
 import Image from 'next/image';
 import searchIcon from '@public/icons/search.svg';
 import logo from '@public/logo.png';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 const pageMenu = [
   { name: 'Nails', url: '/nails' },
-  { name: 'Nails box', url: '/nails-box' },
   { name: 'Shop', url: '/shop' },
   { name: 'Course', url: '/course' },
 ];
 const Header = () => {
   const pathName = usePathname();
+
   return (
     <header className={style.header}>
       <div className="container">
