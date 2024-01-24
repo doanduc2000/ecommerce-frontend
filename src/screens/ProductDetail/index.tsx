@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { formatCurrency } from '@/utils/help';
 import ProductList from '@/components/ProductList';
 
-const ProductDetail = ({ params }: { params: { slug: string } }) => {
+const ProductDetail = async ({ params }: { params: { slug: string } }) => {
+  console.log(params);
   return (
     <div className="container">
       <div className={style.productDetail}>

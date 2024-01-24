@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Roboto } from 'next/font/google';
 
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={roboto.className}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
