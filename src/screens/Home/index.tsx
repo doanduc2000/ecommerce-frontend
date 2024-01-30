@@ -2,15 +2,16 @@ import React from 'react';
 import style from './home.module.scss';
 import Slider from '@/components/Slider';
 import ProductList from '@/components/ProductList';
+import { Product } from '@/models/product';
 
-const Home = () => {
+const Home = ({ products }: { products: Product[] }) => {
   return (
     <>
       <Slider />
       <div className="container">
-        <ProductList title={'Nails'} />
-        <ProductList title={'Nails Box'} />
-        <ProductList title={'Shop'} />
+        <ProductList title={'Nails'} products={products} />
+        <ProductList title={'Nails Box'} products={products} />
+        <ProductList title={'Shop'} products={products} />
       </div>
     </>
   );

@@ -1,3 +1,5 @@
+import slugify from 'slugify';
+
 export const formatCurrency = (amount: number) => {
   return amount.toLocaleString('vi-VN', {
     style: 'currency',
@@ -5,9 +7,10 @@ export const formatCurrency = (amount: number) => {
   });
 };
 export const convertToSlug = (str: string) => {
-  return str
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-')
-    .toLowerCase();
+  if (typeof str !== 'string') return str;
+  return slugify(str, { replacement: '-', lower: true, locale: 'vi' });
+};
+export const getIdFromSlug = (str: string) => {
+  if (typeof str !== 'string') return str;
+  return str.split('-')[str.split('-').length - 1].split('.')[0];
 };

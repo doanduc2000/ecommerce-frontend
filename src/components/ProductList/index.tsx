@@ -6,6 +6,7 @@ import { Navigation, Scrollbar } from 'swiper/modules';
 import nailDemo from '@public/images/nails-demo.jpg';
 import ProductCard from '../ProductCard';
 import { convertToSlug } from '@/utils/help';
+import { Product } from '@/models/product';
 
 const data = [
   { id: '1', name: 'Mẫu 1', img: nailDemo, price: 100000, category: 'Nails' },
@@ -16,6 +17,7 @@ const data = [
 ];
 interface ProductListProps {
   title: string;
+  products: Product[];
 }
 const ProductList = (props: ProductListProps) => {
   return (
@@ -46,8 +48,8 @@ const ProductList = (props: ProductListProps) => {
           },
         }}
       >
-        {data.map((item) => (
-          <SwiperSlide key={item.id}>
+        {props.products.map((item) => (
+          <SwiperSlide key={item._id}>
             <ProductCard {...item} />
           </SwiperSlide>
         ))}

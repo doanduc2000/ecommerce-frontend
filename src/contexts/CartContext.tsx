@@ -1,26 +1,24 @@
-'use client'
+'use client';
+import { Product } from '@/models/product';
 import { ReactNode, createContext, useContext, useReducer } from 'react';
 
-interface Item {
-  id: string;
-  name: string;
-}
+
 
 interface CartState {
-  items: Item[];
+  items: Product[];
 }
 
 interface CartContextType {
   cartState: CartState;
-  addToCart: (item: Item) => void;
-  removeFromCart: (item: Item) => void;
+  addToCart: (item: Product) => void;
+  removeFromCart: (item: Product) => void;
 }
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 type CartProviderProps = {
   children: ReactNode;
 };
-const cartReducer = (state: CartState, action: { type: string; payload: Item }): CartState => {
+const cartReducer = (state: CartState, action: { type: string; payload: Product }): CartState => {
   switch (action.type) {
     case 'ADD_TO_CART':
       return {
@@ -30,7 +28,7 @@ const cartReducer = (state: CartState, action: { type: string; payload: Item }):
     case 'REMOVE_FROM_CART':
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload.id),
+        items: state.items.filter((item) => item._id !== action.payload._id),
       };
     default:
       return state;
@@ -39,11 +37,11 @@ const cartReducer = (state: CartState, action: { type: string; payload: Item }):
 const CartProvider = ({ children }: CartProviderProps) => {
   const [cartState, dispatch] = useReducer(cartReducer, { items: [] });
 
-  const addToCart = (item: Item) => {
+  const addToCart = (item: Product) => {
     dispatch({ type: 'ADD_TO_CART', payload: item });
   };
 
-  const removeFromCart = (item: Item) => {
+  const removeFromCart = (item: Product) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: item });
   };
 
