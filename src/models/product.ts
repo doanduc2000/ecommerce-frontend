@@ -6,6 +6,7 @@ export interface Product {
   name: string;
   price: number;
   numberic: number;
+  buyNumber: number | 0;
   description: string;
   images: string | StaticImageData;
 }

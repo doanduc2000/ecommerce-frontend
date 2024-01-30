@@ -2,8 +2,6 @@
 import { Product } from '@/models/product';
 import { ReactNode, createContext, useContext, useReducer } from 'react';
 
-
-
 interface CartState {
   items: Product[];
 }
@@ -12,6 +10,7 @@ interface CartContextType {
   cartState: CartState;
   addToCart: (item: Product) => void;
   removeFromCart: (item: Product) => void;
+  updateCart: (item: Product) => void;
 }
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -24,6 +23,13 @@ const cartReducer = (state: CartState, action: { type: string; payload: Product 
       return {
         ...state,
         items: [...state.items, action.payload],
+      };
+    case 'UPDATE_TO_CART':
+      return {
+        ...state,
+        items: state.items.map((item) =>
+          item._id === action.payload._id && action.payload.buyNumber !== 0 ? action.payload : item,
+        ),
       };
     case 'REMOVE_FROM_CART':
       return {
@@ -44,8 +50,12 @@ const CartProvider = ({ children }: CartProviderProps) => {
   const removeFromCart = (item: Product) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: item });
   };
-
-  return <CartContext.Provider value={{ cartState, addToCart, removeFromCart }}>{children}</CartContext.Provider>;
+  const updateCart = (item: Product) => {
+    dispatch({ type: 'UPDATE_TO_CART', payload: item });
+  };
+  return (
+    <CartContext.Provider value={{ cartState, addToCart, removeFromCart, updateCart }}>{children}</CartContext.Provider>
+  );
 };
 const useCart = (): CartContextType => {
   const context = useContext(CartContext);

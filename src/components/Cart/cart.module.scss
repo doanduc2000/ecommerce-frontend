@@ -1,0 +1,71 @@
+.cart {
+  position: relative;
+  button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    padding: 7px;
+    background: transparent;
+    transition: all 0.2s linear;
+    &:hover {
+      background: #f7f7f7;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    span {
+      position: absolute;
+      background: #111;
+      top: -5px;
+      right: -5px;
+      color: #fff;
+      font-weight: 600;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 12px;
+    }
+  }
+  .box {
+    position: absolute;
+    border-radius: 4px;
+    background: #fff;
+    top: 45px;
+    right: 0;
+    width: 300px;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+    padding: 15px 10px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .btn {
+      margin-top: 15px;
+      button {
+        font-size: 14px;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        background: #111;
+        border: 1px solid #111;
+        color: #fff;
+        &:hover {
+          background: #707072;
+          border-color: #707072;
+        }
+      }
+    }
+  }
+}

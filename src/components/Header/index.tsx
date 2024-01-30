@@ -2,10 +2,10 @@
 import React from 'react';
 import style from './header.module.scss';
 import Image from 'next/image';
-import cartIcon from '@public/icons/cart.svg';
+
 import logo from '@public/logo.png';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useCart } from '@/contexts/CartContext';
+import { usePathname } from 'next/navigation';
+import Cart from '../Cart';
 
 const pageMenu = [
   { name: 'Nails', url: '/nails' },
@@ -14,7 +14,7 @@ const pageMenu = [
 ];
 const Header = () => {
   const pathName = usePathname();
-  const { cartState } = useCart();
+
   return (
     <header className={style.header}>
       <div className="container">
@@ -32,11 +32,7 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-
-            <button>
-              <Image src={cartIcon} alt="search" />
-              {cartState.items.length > 0 && <span>{cartState.items.length}</span>}
-            </button>
+            <Cart />
           </div>
         </div>
       </div>

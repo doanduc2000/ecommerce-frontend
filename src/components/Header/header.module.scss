@@ -47,39 +47,6 @@
         }
       }
     }
-    button {
-      position: relative;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      border-radius: 50%;
-      border: none;
-      padding: 7px;
-      background: transparent;
-      transition: all 0.2s linear;
-      &:hover{
-        background: #f7f7f7;
-      }
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      span {
-        position: absolute;
-        background: #111;
-       top: -5px;
-       right: -5px;
-        color: #fff;
-        font-weight: 600;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 12px;
-      }
-    }
+  
   }
 }
