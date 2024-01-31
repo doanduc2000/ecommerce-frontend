@@ -1,4 +1,4 @@
-import { API_URL } from '@/utils/const';
+import { API_URL } from '@/utils/help';
 
 export const getProducts = async () => {
   const res = await fetch(`${API_URL}/product`);

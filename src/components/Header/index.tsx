@@ -33,6 +33,7 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+
             <Cart />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import slugify from 'slugify';
-
+export const API_URL: string = 'http://127.0.0.1:5000/api';
 export const formatCurrency = (amount: number) => {
   return amount.toLocaleString('vi-VN', {
     style: 'currency',
