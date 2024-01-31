@@ -20,14 +20,20 @@ const Cart = () => {
       </button>
       {openCart && (
         <div className={style.box}>
-          <div className={style.container}>
-            {cartState.items.map((item) => (
-              <CartItem key={item._id} product={item} />
-            ))}
-          </div>
-          <div className={style.btn}>
-            <button>Thanh toán ngay</button>
-          </div>
+          {cartState.items.length === 0 ? (
+            <p>Bạn chưa thêm sản phẩm nào vào giỏ hàng</p>
+          ) : (
+            <>
+              <div className={style.container}>
+                {cartState.items.map((item) => (
+                  <CartItem key={item._id} product={item} />
+                ))}
+              </div>
+              <div className={style.btn}>
+                <button>Thanh toán ngay</button>
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>

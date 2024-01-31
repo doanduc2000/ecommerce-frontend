@@ -11,5 +11,4 @@ export const metadata: Metadata = {
   title: 'Gạo Nail & Style',
   description: 'Gạo Nail & Style',
 };
-
 export default RootLayout;

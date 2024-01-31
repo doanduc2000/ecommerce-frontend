@@ -10,7 +10,8 @@ interface CartContextType {
   cartState: CartState;
   addToCart: (item: Product) => void;
   removeFromCart: (item: Product) => void;
-  updateCart: (item: Product) => void;
+  increaseByNumber: (item: Product) => void;
+  decreaseByNumber: (item: Product) => void;
 }
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -20,16 +21,31 @@ type CartProviderProps = {
 const cartReducer = (state: CartState, action: { type: string; payload: Product }): CartState => {
   switch (action.type) {
     case 'ADD_TO_CART':
+      action.payload.buyNumber = 1;
+
       return {
         ...state,
         items: [...state.items, action.payload],
       };
-    case 'UPDATE_TO_CART':
+    case 'INCREASE_BUY_NUMBER':
       return {
         ...state,
-        items: state.items.map((item) =>
-          item._id === action.payload._id && action.payload.buyNumber !== 0 ? action.payload : item,
-        ),
+        items: state.items.map((item) => {
+          if (item._id === action.payload._id) {
+            return action.payload;
+          }
+          return item;
+        }),
+      };
+    case 'DECREASE_BUY_NUMBER':
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item._id === action.payload._id) {
+            return action.payload;
+          }
+          return item;
+        }),
       };
     case 'REMOVE_FROM_CART':
       return {
@@ -50,11 +66,19 @@ const CartProvider = ({ children }: CartProviderProps) => {
   const removeFromCart = (item: Product) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: item });
   };
-  const updateCart = (item: Product) => {
-    dispatch({ type: 'UPDATE_TO_CART', payload: item });
+  const increaseByNumber = (item: Product) => {
+    item.buyNumber++;
+    dispatch({ type: 'INCREASE_BUY_NUMBER', payload: item });
+  };
+  const decreaseByNumber = (item: Product) => {
+    if (item.buyNumber < 2) removeFromCart(item);
+    else item.buyNumber--;
+    dispatch({ type: 'DECREASE_BUY_NUMBER', payload: item });
   };
   return (
-    <CartContext.Provider value={{ cartState, addToCart, removeFromCart, updateCart }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ cartState, addToCart, removeFromCart, increaseByNumber, decreaseByNumber }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 const useCart = (): CartContextType => {

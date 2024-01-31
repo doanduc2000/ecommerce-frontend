@@ -9,7 +9,7 @@ import { useCart } from '@/contexts/CartContext';
 import { Product } from '@/models/product';
 
 const ProductDetail = ({ product }: { product: Product }) => {
-  const { addToCart } = useCart();
+  const { cartState, increaseByNumber, decreaseByNumber, addToCart } = useCart();
   return (
     <div className="container">
       <div className={style.productDetail}>
@@ -21,15 +21,37 @@ const ProductDetail = ({ product }: { product: Product }) => {
           <span className={style.desc}>{product.categories.name}</span>
           <span className={style.price}>{formatCurrency(product.price)}</span>
           <div className={style.control}>
-            <button
-              className={style.cart}
-              onClick={() => {
-                addToCart(product);
-              }}
-            >
-              Thêm vào giỏ hàng
-            </button>
-            <button className={style.regist}>Đặt lịch ngay</button>
+            {cartState.items.some((item: any) => item._id === product._id) ? (
+              <div className={style.btn}>
+                <button
+                  onClick={() => {
+                    decreaseByNumber(product);
+                  }}
+                >
+                  -
+                </button>
+                <span>{cartState.items.find((item) => item._id === product._id)?.buyNumber}</span>
+                <button
+                  onClick={() => {
+                    increaseByNumber(product);
+                  }}
+                >
+                  +
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  className={style.cart}
+                  onClick={() => {
+                    addToCart(product);
+                  }}
+                >
+                  Thêm vào giỏ hàng
+                </button>
+                <button className={style.regist}>Đặt lịch ngay</button>
+              </>
+            )}
           </div>
           <p>{product.description}</p>
         </div>

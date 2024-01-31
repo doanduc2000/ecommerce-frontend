@@ -58,10 +58,23 @@
           border-color: #111;
         }
       }
+      .btn {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        button {
+          border-radius: 50%;
+          background: #111;
+          color: #fff;
+          width: 40px;
+          height: 40px;
+          border: none;
+          padding: 0;
+        }
+      }
     }
-    p{
+    p {
       text-align: justify;
-      
     }
   }
 }

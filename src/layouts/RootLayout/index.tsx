@@ -10,14 +10,14 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
-        <CartProvider>
+    <CartProvider>
+      <html lang="en">
+        <body className={roboto.className}>
           <Header />
           <main>{children}</main>
           <Footer />
-        </CartProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </CartProvider>
   );
 }

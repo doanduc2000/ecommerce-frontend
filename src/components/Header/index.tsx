@@ -6,6 +6,7 @@ import Image from 'next/image';
 import logo from '@public/logo.png';
 import { usePathname } from 'next/navigation';
 import Cart from '../Cart';
+import Link from 'next/link';
 
 const pageMenu = [
   { name: 'Nails', url: '/nails' },
@@ -19,16 +20,16 @@ const Header = () => {
     <header className={style.header}>
       <div className="container">
         <div className={style.box}>
-          <a href="/" className={style.logo}>
+          <Link href="/" className={style.logo}>
             <h1>
               <Image width={400} height={291} src={logo} priority={true} alt="" />
             </h1>
-          </a>
+          </Link>
           <div className={style.right}>
             <ul>
               {pageMenu.map((item) => (
                 <li key={item.url} className={item.url === `/${pathName.split('/')[1]}` ? style.active : ''}>
-                  <a href={item.url}>{item.name}</a>
+                  <Link href={item.url}>{item.name}</Link>
                 </li>
               ))}
             </ul>

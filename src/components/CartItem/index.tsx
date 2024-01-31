@@ -1,17 +1,13 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import style from './cartItem.module.scss';
 import nailDemo from '@public/images/nails-demo.jpg';
 import { useCart } from '@/contexts/CartContext';
 import { Product } from '@/models/product';
-const CartItem = ({ product }: { product: Product }) => {
-  let buyNumber = 0;
-  const { cartState, updateCart } = useCart();
-  const handleNumberItem = (buyNumber: number) => {
-    updateCart({ ...product, buyNumber });
-  };
 
+const CartItem = ({ product }: { product: Product }) => {
+  const { cartState, increaseByNumber, decreaseByNumber } = useCart();
   return (
     <div className={style.item}>
       <div className={style.left}>
@@ -25,9 +21,7 @@ const CartItem = ({ product }: { product: Product }) => {
       <div className={style.control}>
         <button
           onClick={() => {
-            if (buyNumber <= 0) buyNumber = 0;
-            buyNumber--;
-            handleNumberItem(buyNumber);
+            decreaseByNumber(product);
           }}
         >
           -
@@ -35,8 +29,7 @@ const CartItem = ({ product }: { product: Product }) => {
         <span>{cartState.items.find((item) => item._id === product._id)?.buyNumber}</span>
         <button
           onClick={() => {
-            buyNumber++;
-            handleNumberItem(buyNumber);
+            increaseByNumber(product);
           }}
         >
           +

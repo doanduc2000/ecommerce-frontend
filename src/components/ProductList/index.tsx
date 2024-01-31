@@ -7,6 +7,7 @@ import nailDemo from '@public/images/nails-demo.jpg';
 import ProductCard from '../ProductCard';
 import { convertToSlug } from '@/utils/help';
 import { Product } from '@/models/product';
+import Link from 'next/link';
 
 const data = [
   { id: '1', name: 'Mẫu 1', img: nailDemo, price: 100000, category: 'Nails' },
@@ -22,9 +23,9 @@ interface ProductListProps {
 const ProductList = (props: ProductListProps) => {
   return (
     <div className={style.productList}>
-      <a href={`/${convertToSlug(props.title)}`} className={style.header}>
+      <Link href={`/${convertToSlug(props.title)}`} className={style.header}>
         <h2 className={style.title}>{props.title}</h2>
-      </a>
+      </Link>
       <Swiper
         className={style.box}
         scrollbar={{
