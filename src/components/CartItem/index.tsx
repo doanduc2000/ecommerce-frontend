@@ -5,6 +5,7 @@ import style from './cartItem.module.scss';
 import nailDemo from '@public/images/nails-demo.jpg';
 import { useCart } from '@/contexts/CartContext';
 import { Product } from '@/models/product';
+import { formatCurrency } from '@/utils/help';
 
 const CartItem = ({ product }: { product: Product }) => {
   const { cartState, increaseByNumber, decreaseByNumber } = useCart();
@@ -13,8 +14,8 @@ const CartItem = ({ product }: { product: Product }) => {
       <div className={style.left}>
         <Image width={100} height={100} src={nailDemo} alt="" />
         <div className={style.info}>
-          <span>Mẫu 1</span>
-          <p>Mô tả 1</p>
+          <span>{product.name}</span>
+          <p>{formatCurrency(product.price)}</p>
         </div>
       </div>
 

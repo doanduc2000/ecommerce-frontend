@@ -8,11 +8,7 @@ import { usePathname } from 'next/navigation';
 import Cart from '../Cart';
 import Link from 'next/link';
 
-const pageMenu = [
-  { name: 'Nails', url: '/nails' },
-  { name: 'Shop', url: '/shop' },
-  { name: 'Course', url: '/course' },
-];
+const pageMenu = [{ name: 'Sản phẩm', url: '/nails' }];
 const Header = () => {
   const pathName = usePathname();
 

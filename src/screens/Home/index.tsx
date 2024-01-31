@@ -11,7 +11,6 @@ const Home = ({ products }: { products: Product[] }) => {
       <div className="container">
         <ProductList title={'Nails'} products={products} />
         <ProductList title={'Nails Box'} products={products} />
-        <ProductList title={'Shop'} products={products} />
       </div>
     </>
   );
